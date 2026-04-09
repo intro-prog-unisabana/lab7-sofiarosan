@@ -1,16 +1,24 @@
-import csv
+import csv 
 
 from caesar import caesar_encrypt
 
 
 def encrypt_single_pass(filename: str) -> None:
-    """TODO: Parte 1."""
-    pass
+    with open (filename.txt, 'r') as file:
+
+        password= file.readline().strip
+
+    encrypted=caesar_encrypt(password)
+
+    with open (filename, "w") as file:
+        file.write(encrypted)
 
 
 def encrypt_passwords_in_file(filename: str) -> None:
-    """TODO: Parte 2."""
-    pass
+    with open(filename, 'r') as file:
+        reader= csv.reader(file )
+        for row in reader:
+            print (row)
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
