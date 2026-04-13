@@ -4,22 +4,29 @@ from caesar import caesar_encrypt
 
 
 def encrypt_single_pass(filename: str) -> None:
-    with open (filename.txt, 'r') as file:
+    with open (filename.txt, 'r') as f:
 
-        password= file.readline().strip
+        password= f.readline().strip
 
     encrypted=caesar_encrypt(password)
 
-    with open (filename, "w") as file:
-        file.write(encrypted)
+    with open (filename, "w") as f:
+        f.write(encrypted)
 
 
 def encrypt_passwords_in_file(filename: str) -> None:
-    with open(filename, 'r') as file:
-        reader= csv.reader(file )
-        for row in reader:
-            print (row)
+    with open(filename, 'r') as f:
+        reader= csv.reader(f)
+        rows=[]
 
+        for row in reader:
+            rows.append(row)
+    for index, row in enumerate(rows):
+                if index !=0:
+                   row[2] = caesar_encrypt(row[2])
+    with open(filename, 'w') as f: 
+      writer= csv.writer(f)
+      writer.writerows(rows)
 
 def change_password(filename: str, website: str, password: str) -> bool:
     """TODO: Parte 3."""
