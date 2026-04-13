@@ -4,9 +4,9 @@ from caesar import caesar_encrypt
 
 
 def encrypt_single_pass(filename: str) -> None:
-    with open (filename.txt, 'r') as f:
+    with open(filename.txt, 'r') as f:
 
-        password= f.readline().strip
+        password= f.readline().strip()
 
     encrypted=caesar_encrypt(password)
 
