@@ -4,9 +4,9 @@ from caesar import caesar_encrypt
 
 
 def encrypt_single_pass(filename: str) -> None:
-    with open(filename.txt, 'r') as f:
+    with open(filename, 'r') as f:
 
-        password= f.readline().strip()
+        password= f.read().strip()
 
     encrypted=caesar_encrypt(password)
 
@@ -15,15 +15,16 @@ def encrypt_single_pass(filename: str) -> None:
 
 
 def encrypt_passwords_in_file(filename: str) -> None:
+    rows=[]
     with open(filename, 'r') as f:
         reader= csv.reader(f)
-        rows=[]
-
         for row in reader:
-            rows.append(row)
-    for index, row in enumerate(rows):
-                if index !=0:
-                   row[2] = caesar_encrypt(row[2])
+            if row:
+              rows.append(row)
+
+    for i in range(1, len(rows)):
+                if len(rows[i])>= 3:
+                   row[i][2] = caesar_encrypt(row[i][2])
     with open(filename, 'w') as f: 
       writer= csv.writer(f)
       writer.writerows(rows)
@@ -42,7 +43,7 @@ def change_password(filename: str, website: str, password: str) -> bool:
     found=False
 
     for i in range(1, len(rows)):
-        if rows[i][0] == website:
+        if len(rows[i]) >= 3 and rows[i][0] ==website:
             rows[i][2]== caesar_encrypt(password)
             found== True
             break
