@@ -13,7 +13,7 @@ def main() -> None:
 
         if option=='1':
             print("Enter the website and the new password:")
-            data= input.split()
+            data= input().split()
 
             if len(data)<2:
                 print("Input is in the wrong format!")
@@ -35,7 +35,7 @@ def main() -> None:
                 print("Password changed.")
         elif option== '2':
             print("Enter the website, username, and password:")
-            data= input.split()
+            data= input().split()
 
             if len(data)<3:
                  print("Input is in the wrong format!")
