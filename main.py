@@ -17,9 +17,11 @@ def main() -> None:
 
             if len(data)<2:
                 print("Input is in the wrong format!")
+
                 continue
             
-            website, password = data
+            website = data[0]
+            password= data[1]
 
             if len(password)<12:
                 print("Password is too short!")
@@ -39,7 +41,9 @@ def main() -> None:
                  print("Input is in the wrong format!")
                  continue
             
-            website, username, password= data
+            website= data[0]
+            username=data[1]
+            password= data[2]
 
             if len(password)<12:
                 print("Password is too short!")
