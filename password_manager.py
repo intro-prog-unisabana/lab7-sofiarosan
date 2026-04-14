@@ -60,3 +60,7 @@ def add_login(filename: str, website_name: str, username: str, password: str) ->
     with open (filename, 'a',newline='') as f:
         writer= csv.writer(f)
         writer.writerow([website_name, username, caesar_encrypt(password)])
+
+        
+if __name__ == "__main__":
+    main()
